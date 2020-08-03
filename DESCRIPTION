@@ -1,12 +1,13 @@
-Package: R.ROSETTA
-Title: R.ROSETTA - an R package for rule-based classification modelling
-Version: 2.2.6
+Package: paR.ROSETTA
+Title: Parallel version of R.ROSETTA
+Version: 1.1.1
 Imports: gplots, fmsb, stringr, Matrix
 Date: 2020-02-20
 Authors@R: c(
     person("Mateusz", "Garbulowski", email = "mateusz.garbulowski@icm.uu.se", role = c("aut", "cre")),
     person("Karolina", "Smolinska", email = "karolina.smolinska@icm.uu.se", role = c("aut", "ctb")),
     person("Klev", "Diamanti", role = c("ctb")),
+    person("Nicholas", "Baltzer", role = c("ctb")),
     person("Patricia", "Stoll", role = c("ctb")),
     person("Susanne", "Bornelov", role = c("ctb")),
     person("Aleksander", "Ohrn", role = c("aut", "cph")),
