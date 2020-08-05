@@ -34,7 +34,9 @@ rosetta <- function(dt,
                     calibration=FALSE,
                     fillNA=FALSE,
                     fillNAmethod="meanMode",
-                    remSpChars=FALSE)
+                    remSpChars=FALSE,
+                    dynamicThreads=TRUE,
+                    maxThreads=4)
 {
 # set seed
 set.seed(seed)
@@ -224,8 +226,8 @@ dirList2 <- ifelse(.Platform$OS.type == "unix",
 dir.create(dirList2)
 # store pathway to ROSETTA exe
 pathExe <- ifelse(.Platform$OS.type == "unix",
-                  paste(system.file(package="R.ROSETTA"), "exec/clrosetta.exe", sep="/"),
-                  paste(gsub("/","\\",system.file(package="R.ROSETTA"),fixed=T), "exec", "clrosetta.exe", sep="\\"))
+                  paste(system.file(package="paR.ROSETTA"), "exec/clrosetta.exe", sep="/"),
+                  paste(gsub("/","\\",system.file(package="paR.ROSETTA"),fixed=T), "exec", "clrosetta.exe", sep="\\"))
 # masking the attributes
 IDGfnam <- maskAttribute(maskFeaturesNames, dirList2)
       
@@ -270,7 +272,7 @@ genCmdFilesRosetta(dir_file3=dirList2,
       
 # check the platform
 if(.Platform$OS.type=="unix"){
-comm <- sprintf('wine %s CVSerialExecutor "INVERT = %s; NUMBER = %i; SEED = %i; LENGTH = %i; FILENAME.COMMANDS = %s; FILENAME.LOG = %s" %s',
+comm <- sprintf('wine %s CVSerialExecutor "INVERT = %s; NUMBER = %i; SEED = %i; LENGTH = %i; FILENAME.COMMANDS = %s; FILENAME.LOG = %s; DYNAMICTHREADS=%s; MAXTHREADS=%i" %s',
 pathExe,
 substr(as.character(invert),1,1),
 cvNum,
@@ -278,6 +280,8 @@ seed,
 pipeLen,
 paste0(dirList2,"/","OUT_cmdCV.txt"),
 paste0(dirList2,"/","logMain.txt"),
+substr(as.character(dynamicThreads),1,1),
+maxThreads,
 paste0(dirList2,"/",rosFileName))
 # run ROSETTA exe
 try(system(command=comm, ignore.stdout = TRUE), silent=TRUE) # suppress warnings and messages

@@ -1,6 +1,6 @@
 Package: paR.ROSETTA
 Title: Parallel version of R.ROSETTA
-Version: 1.1.1
+Version: 1.1.2
 Imports: gplots, fmsb, stringr, Matrix
 Date: 2020-02-20
 Authors@R: c(
