@@ -7,6 +7,7 @@
 
 # paR.ROSETTA
 Work in progress!
+
 paR.ROSETTA is parallel version of R.ROSETTA.
 For more information and tutorials, please visit the [official R.ROSETTA website](https://komorowskilab.github.io/R.ROSETTA/).
 
