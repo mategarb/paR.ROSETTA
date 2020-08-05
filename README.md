@@ -25,9 +25,9 @@ install.packages("devtools")
 Installation and loading R.ROSETTA package from github:
 ```R
 library(devtools)
-install_github("komorowskilab/R.ROSETTA")
+install_github("mategarb/paR.ROSETTA")
 
-library(R.ROSETTA)
+library(paR.ROSETTA)
 ```
 
 ## Acknowledgments
